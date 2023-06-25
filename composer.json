@@ -1,0 +1,21 @@
+{
+    "name": "immachakata/cctv-direct",
+    "description": "Scrapper fo CCTV Direct",
+    "type": "project",
+    "license": "proprietary",
+    "autoload": {
+        "psr-4": {
+            "CctvDirect\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Isaac Machakata",
+            "email": "isaac@caasi.co.zw"
+        }
+    ],
+    "require": {
+        "php": ">=5.6",
+        "simplehtmldom/simplehtmldom": "^1"
+    }
+}
