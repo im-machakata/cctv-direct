@@ -31,7 +31,8 @@ class Collection {
      * @return string|null
      */
     public function getTitle() {
-        return !$this->doc ? null : $this->doc->find('.collection__title .heading.h1', 0)->plaintext;
+        $title = $this->doc->find('.collection__title .heading.h1', 0);
+        return !$this->doc || !$title ? null : $title->plaintext;
     }
 
     /**
@@ -47,11 +48,14 @@ class Collection {
             // remove the span tag to get the price only
             $product->find('.price span', 0)->remove();
 
+            $image_alt = $product->find('.product-item__primary-image', 0);
+            $image_alt = !$image_alt ? '' : $image_alt->alt;
+
             $results[] = [
                 'title' => Utils::cleanValue($product->find('.product-item__title.text--strong.link', 0)->innertext),
                 'price' => Utils::toPrice($product->find('.price', 0)->innertext),
                 'images' => Utils::getImage($product->find('.product-item__primary-image', 0)),
-                'image_alt' => $product->find('.product-item__primary-image', 0)->alt,
+                'image_alt' => $image_alt,
             ];
         }
         return $results;
