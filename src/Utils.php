@@ -51,10 +51,14 @@ class Utils {
 
     /**
      * Returns an array pre-filled with image urls per size.
+     * @param HtmlNode|null $product
      * @return array
      */
-    static function getImage(HtmlNode $product) {
+    static function getImage($product) {
         $results = array();
+        if(!$product){
+            return $results;
+        }
         $widths  = explode(',', str_replace(['[', ']'], '', $product->getAttribute('data-widths')));
         foreach ($widths as $width) {
             $results[$width] = str_replace('{width}', $width, $product->getAttribute('data-src'));
