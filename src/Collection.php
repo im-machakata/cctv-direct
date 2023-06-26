@@ -1,8 +1,6 @@
 <?php
 namespace CctvDirect;
 
-include __DIR__ . "/Utils.php";
-
 use CctvDirect\Utils;
 use simplehtmldom\HtmlDocument;
 

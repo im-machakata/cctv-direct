@@ -16,6 +16,6 @@
     ],
     "require": {
         "php": ">=5.6",
-        "simplehtmldom/simplehtmldom": "^1"
+        "simplehtmldom/simplehtmldom": "dev-master"
     }
 }

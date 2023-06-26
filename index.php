@@ -2,16 +2,20 @@
 use CctvDirect\Scrapper;
 
 include __DIR__ . "/vendor/autoload.php";
-include __DIR__ . "/src/Scrapper.php";
 
 header('Content-Type: application/json');
 
 $results  = array();
+$host = $_SERVER['HTTP_HOST'];
 $scrapper = new Scrapper();
-$scrapper->scrape('http://cctvscrap.test/bin/dahua-analog-hd-cctv-cameras.htm');
+$scrapper->scrape(sprintf('http://%s/bin/dahua-analog-hd-cctv-cameras.htm',$host));
 
 // ? localhost demo scrapping 
 $collection = $scrapper->collection;
+
+if(!$collection){
+    die("Failed to connect to ".$host);
+}
 $results    = array(
     'title' => $collection->getTitle(),
     'category_slug' => $collection->getCategorySlug(),

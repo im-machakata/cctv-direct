@@ -3,13 +3,6 @@ namespace CctvDirect;
 
 use simplehtmldom\HtmlWeb;
 
-// todo: remove local library
-define('SIMPLE_HTML_SRC', __DIR__ . "/lib/simplehtml/HtmlWeb.php");
-if (file_exists(SIMPLE_HTML_SRC)) {
-    include __DIR__ . "/lib/simplehtml/HtmlWeb.php";
-}
-include __DIR__ . "/Collection.php";
-
 /**
  * Scrapes data from cctv-direct.co.za
  * 
