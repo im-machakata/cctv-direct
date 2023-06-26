@@ -1,6 +1,6 @@
-# CCTV Direct Data Miner
+# PHP Data Miner
 
-Fetches data from [cctv-direct.co.za](http://cctv-direct.co.za) into a custom file.
+Fetches data from a certain website.
 
 ## Installation
 
@@ -26,7 +26,7 @@ The following scrapes data from the file in the bin folder
 ```php
 $results  = array();
 $scrapper = new Scrapper();
-$scrapper->scrape('http://cctvscrap.test/bin/dahua-analog-hd-cctv-cameras.htm');
+$scrapper->scrape('http://localhost/bin/dahua-analog-hd-cctv-cameras.htm');
 
 // ? localhost demo scrapping 
 $collection = $scrapper->collection;

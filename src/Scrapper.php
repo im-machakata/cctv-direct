@@ -15,10 +15,6 @@ class Scrapper {
      * @var Collection|null
      */
     public $collection;
-    /**
-     * @var bool
-     */
-    public $wasScrapped;
 
     public function __construct() {
         $this->collection = new Collection();
@@ -26,8 +22,9 @@ class Scrapper {
 
     /**
      * Basically fetches the html from the url.
-     * The function then returns a collection class or null depending on the result.
+     * Returns true hen the request was successful.
      * @param string $url
+     * @return bool
      */
     public function scrape($url) {
         $html             = $this->get_url($url);
@@ -37,8 +34,9 @@ class Scrapper {
         // free memory
         unset($scrapped);
 
-        return ($this->wasScrapped = ($this->collection !== null));
+        return ($this->collection !== null);
     }
+
     /**
      * Fetches the html contents of the url
      * @param string $url
